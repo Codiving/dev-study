@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { SIDEBAR_WIDTH } from "../theme/utils";
+import { SIDEBAR_WIDTH } from "../theme/size";
 
 interface Props {
   open: boolean;
