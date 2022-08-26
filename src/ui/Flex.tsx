@@ -32,13 +32,17 @@ interface Props {
   wrap?: React.CSSProperties["flexWrap"];
   spacing?: number;
   crossSpacing?: number;
-  //   width
+  // width
   width?: React.CSSProperties["width"];
   fullWidth?: boolean;
-  //   height
+  // height
   height?: React.CSSProperties["height"];
   fullHeight?: boolean;
-  //   label
+  // background
+  bgColor?: React.CSSProperties["backgroundColor"];
+  // paddig
+  padding?: React.CSSProperties["padding"];
+  // label
   label?: string;
 }
 
@@ -54,7 +58,9 @@ const Flex = styled("div", {
     "width",
     "fullWidth",
     "height",
-    "fullHeight"
+    "fullHeight",
+    "bgColor",
+    "padding"
   ])
 })<Props>(
   ({
@@ -69,6 +75,8 @@ const Flex = styled("div", {
     fullWidth,
     height,
     fullHeight,
+    bgColor,
+    padding,
     label
   }) => ({
     display: display,
@@ -78,6 +86,8 @@ const Flex = styled("div", {
     flexWrap: wrap,
     width: fullWidth ? "100%" : width,
     height: fullHeight ? "100%" : height,
+    backgroundColor: bgColor,
+    padding,
     ...getSpacing(spacing, crossSpacing, direction),
     label
   })
