@@ -1,5 +1,5 @@
+import { SIDEBAR_WIDTH } from "@/src/theme/size";
 import styled from "@emotion/styled";
-import { SIDEBAR_WIDTH } from "../theme/size";
 
 interface Props {
   open: boolean;
@@ -20,13 +20,13 @@ const SidebarItem = styled("div")<{ open: boolean }>(({ open }) => ({
 const SidebarBg = styled("div")<{ open: boolean }>(({ open }) => ({
   top: 0,
   left: 0,
-  width: open ? "100vw" : 0,
+  width: "100vw",
   height: "100vh",
   position: "fixed",
   background: "rgba(0, 0, 0, 0.7)",
   opacity: open ? 1 : 0,
-  transitionProperty: "width, opacity",
-  transition: "0.1s"
+  visibility: open ? "visible" : "hidden",
+  transition: "0.2s"
 }));
 
 const Sidebar = (props: Props) => {
