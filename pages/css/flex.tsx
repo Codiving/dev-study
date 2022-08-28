@@ -1,5 +1,7 @@
+import FlexPageLayout from "@/src/pageLayout/FlexPageLayout";
+
 const FlexPage = () => {
-  return <div>flex</div>;
+  return <FlexPageLayout />;
 };
 
 export default FlexPage;
