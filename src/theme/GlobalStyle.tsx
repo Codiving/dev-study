@@ -136,6 +136,12 @@ const customReset = css`
   *:focus {
     outline: 0;
   }
+
+  #__next {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 60px 1fr;
+  }
 `;
 
 const GlobalStyle = () => {
