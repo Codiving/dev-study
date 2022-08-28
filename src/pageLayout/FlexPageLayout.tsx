@@ -4,31 +4,105 @@ import { TimelineProps } from "../components/Timeline/Timeline";
 import { HEADER_HEIGHT } from "../theme/size";
 import { Flex, FlexItem } from "../ui";
 
-const FLEX_TIMELINE: TimelineProps[] = [
+type T = {
+  isPage?: boolean;
+};
+
+const FLEX_TIMELINE: TimelineProps<T>[] = [
   {
     title: "Introduction",
-    isPage: true
+    data: {
+      isPage: true
+    },
+    inner: [
+      {
+        title: "flex-direction",
+        data: {
+          isPage: true
+        }
+      }
+    ]
   },
   {
     title: "flex-container (부모)",
     inner: [
-      { title: "flex-direction", isPage: true },
-      { title: "justify-content", isPage: true },
-      { title: "align-items", isPage: true },
-      { title: "flex-wrap", isPage: true },
-      { title: "align-content", isPage: true },
-      { title: "gap", isPage: true }
+      {
+        title: "flex-direction",
+        data: {
+          isPage: true
+        }
+      },
+      {
+        title: "justify-content",
+        data: {
+          isPage: true
+        }
+      },
+      {
+        title: "align-items",
+        data: {
+          isPage: true
+        }
+      },
+      {
+        title: "flex-wrap",
+        data: {
+          isPage: true
+        }
+      },
+      {
+        title: "align-content",
+        data: {
+          isPage: true
+        }
+      },
+      {
+        title: "gap",
+        data: {
+          isPage: true
+        }
+      }
     ]
   },
   {
     title: "flex-item (자식)",
     inner: [
-      { title: "flex-basis", isPage: true },
-      { title: "flex-grow", isPage: true },
-      { title: "flex-shrink", isPage: true },
-      { title: "flex", isPage: true },
-      { title: "order", isPage: true },
-      { title: "align-self", isPage: true }
+      {
+        title: "flex-basis",
+        data: {
+          isPage: true
+        }
+      },
+      {
+        title: "flex-grow",
+        data: {
+          isPage: true
+        }
+      },
+      {
+        title: "flex-shrink",
+        data: {
+          isPage: true
+        }
+      },
+      {
+        title: "flex",
+        data: {
+          isPage: true
+        }
+      },
+      {
+        title: "order",
+        data: {
+          isPage: true
+        }
+      },
+      {
+        title: "align-self",
+        data: {
+          isPage: true
+        }
+      }
     ]
   }
 ];
@@ -55,6 +129,7 @@ const FlexPageLayout = () => {
         })}
       </FlexItem>
       <FlexItem padding={16} flex={1}>
+        {/* TODO: 여기서 routerTitle로 컴포넌트 분기 */}
         {routerTitle}
       </FlexItem>
     </Flex>

@@ -1,10 +1,11 @@
 import { Flex, FlexItem } from "@/src/ui";
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
+import { TimelineGeneric } from "./Timeline";
 
-interface Props {
+interface Props<T> {
   title?: string;
-  isPage?: boolean;
+  data?: T;
 }
 
 const TimelineTitleText = styled("p")<{ isPage: boolean; isSelected: boolean }>(
@@ -17,8 +18,8 @@ const TimelineTitleText = styled("p")<{ isPage: boolean; isSelected: boolean }>(
   })
 );
 
-const TimelineTitle = (props: Props) => {
-  const { title, isPage = false } = props;
+const TimelineTitle = <T extends TimelineGeneric>(props: Props<T>) => {
+  const { title = "", data } = props;
   const router = useRouter();
 
   const { title: routerTitle } = router.query as {
@@ -30,11 +31,11 @@ const TimelineTitle = (props: Props) => {
       <Flex alignItems={"center"} padding="12px 0" spacing={8}>
         <div style={{ width: 14, height: 14 }}>◦</div>
         <TimelineTitleText
-          isPage={isPage}
+          isPage={data?.isPage ?? false}
           isSelected={routerTitle === title}
           onClick={() => {
-            if (isPage) {
-              router.push(`/css/flex/${title}`);
+            if (data?.isPage) {
+              router.push(`/css/flex/${title.toLocaleLowerCase()}`);
             }
           }}
         >
