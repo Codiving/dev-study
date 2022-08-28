@@ -1,4 +1,4 @@
-import { SIDEBAR_WIDTH } from "@/src/theme/size";
+import { SIDEBAR_SINGLE_ITEM_HEIGHT, SIDEBAR_WIDTH } from "@/src/theme/size";
 import styled from "@emotion/styled";
 import { useState } from "react";
 import { routes } from "./routes";
@@ -35,22 +35,18 @@ const Container = styled("div")(() => ({
   background: "red"
 }));
 
-const InnerContainer = styled("div")<{ open: boolean }>(({ open }) => ({
-  height: open ? 120 : 0,
-  maxHeight: "100%",
-  transition: "0.3s",
-  overflow: "hidden"
-}));
-
-const Inner = styled("div")<{ open: boolean; selected: boolean }>(
-  ({ open, selected }) => ({
-    height: open ? 60 : 0,
+const InnerContainer = styled("div")<{ open: boolean; size: number }>(
+  ({ open, size }) => ({
+    maxHeight: open ? SIDEBAR_SINGLE_ITEM_HEIGHT * size : 0,
     transition: "0.3s",
-    padding: "20px 0 20px 40px",
-    background: selected ? "gray" : "blue",
     overflow: "hidden"
   })
 );
+
+const Inner = styled("div")<{ selected: boolean }>(({ selected }) => ({
+  padding: "20px 0 20px 40px",
+  background: selected ? "gray" : "blue"
+}));
 
 const Sidebar = (props: Props) => {
   const { open, onClose } = props;
@@ -82,7 +78,7 @@ const Sidebar = (props: Props) => {
               >
                 {upperTitle}
               </p>
-              <InnerContainer open={isSelected}>
+              <InnerContainer open={isSelected} size={children.length}>
                 {children.map(item => {
                   const { title: innerTitle, path: innerPath } = item;
 
@@ -90,15 +86,12 @@ const Sidebar = (props: Props) => {
 
                   return (
                     <Inner
-                      open={isSelected}
                       selected={selectedItem === fullPath}
                       onClick={() => {
                         if (fullPath) {
                           if (selectedItem === fullPath) {
-                            console.log(111, selectedItem);
                             return;
                           } else {
-                            console.log(222);
                             setSelectedItem(fullPath);
                           }
                         } else {
