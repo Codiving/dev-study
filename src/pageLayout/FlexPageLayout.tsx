@@ -1,37 +1,34 @@
 import { Timeline } from "@/src/components";
 import { useRouter } from "next/router";
+import { TimelineProps } from "../components/Timeline/Timeline";
 import { HEADER_HEIGHT } from "../theme/size";
 import { Flex, FlexItem } from "../ui";
 
-export interface FlexTimeline {
-  title: string;
-  children?: FlexTimeline[];
-}
-
-const FLEX_TIMELINE: FlexTimeline[] = [
+const FLEX_TIMELINE: TimelineProps[] = [
   {
-    title: "Introduction"
+    title: "Introduction",
+    isPage: true
   },
   {
     title: "flex-container (부모)",
-    children: [
-      { title: "flex-direction" },
-      { title: "justify-content" },
-      { title: "align-items" },
-      { title: "flex-wrap" },
-      { title: "align-content" },
-      { title: "gap" }
+    inner: [
+      { title: "flex-direction", isPage: true },
+      { title: "justify-content", isPage: true },
+      { title: "align-items", isPage: true },
+      { title: "flex-wrap", isPage: true },
+      { title: "align-content", isPage: true },
+      { title: "gap", isPage: true }
     ]
   },
   {
     title: "flex-item (자식)",
-    children: [
-      { title: "flex-basis" },
-      { title: "flex-grow" },
-      { title: "flex-shrink" },
-      { title: "flex" },
-      { title: "order" },
-      { title: "align-self" }
+    inner: [
+      { title: "flex-basis", isPage: true },
+      { title: "flex-grow", isPage: true },
+      { title: "flex-shrink", isPage: true },
+      { title: "flex", isPage: true },
+      { title: "order", isPage: true },
+      { title: "align-self", isPage: true }
     ]
   }
 ];
@@ -53,8 +50,8 @@ const FlexPageLayout = () => {
           maxHeight: `calc(100vh - ${HEADER_HEIGHT}px)`
         }}
       >
-        {FLEX_TIMELINE.map(({ title, children: inner }) => {
-          return <Timeline key={title} title={title} inner={inner} />;
+        {FLEX_TIMELINE.map(item => {
+          return <Timeline key={item.title} {...item} />;
         })}
       </FlexItem>
       <FlexItem padding={16} flex={1}>

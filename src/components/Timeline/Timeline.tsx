@@ -2,22 +2,22 @@ import { Flex } from "@/src/ui";
 import TimelineContents from "./TimelineContents";
 import TimelineTitle from "./TimelineTitle";
 
-export interface TimelineProps<T> {
+export interface TimelineProps {
   title: string;
-  inner?: TimelineProps<T>[];
-  data?: T;
+  inner?: TimelineProps[];
+  isPage?: boolean;
 }
 
-const Timeline = <T extends any>(props: TimelineProps<T>) => {
-  const { inner = [], title } = props;
+const Timeline = (props: TimelineProps) => {
+  const { inner = [], title, isPage } = props;
 
   return (
     <Flex direction="column">
-      <TimelineTitle title={title} />
+      <TimelineTitle title={title} isPage={isPage} />
       <TimelineContents>
-        {inner.map(({ title, inner, data }) => {
+        {inner.map(({ title, inner, isPage }) => {
           return (
-            <Timeline key={title} title={title} inner={inner} data={data} />
+            <Timeline key={title} title={title} inner={inner} isPage={isPage} />
           );
         })}
       </TimelineContents>

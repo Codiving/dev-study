@@ -4,26 +4,38 @@ import { useRouter } from "next/router";
 
 interface Props {
   title?: string;
+  isPage?: boolean;
 }
 
-const TimelineTitleText = styled("p")(() => ({
-  cursor: "pointer",
-  "&:hover": {
-    color: "lightgray"
-  }
-}));
+const TimelineTitleText = styled("p")<{ isPage: boolean; isSelected: boolean }>(
+  ({ isPage, isSelected }) => ({
+    cursor: isPage ? "pointer" : undefined,
+    fontWeight: isSelected ? "bold" : undefined,
+    "&:hover": {
+      color: isPage ? "lightgray" : undefined
+    }
+  })
+);
 
 const TimelineTitle = (props: Props) => {
-  const { title } = props;
+  const { title, isPage = false } = props;
   const router = useRouter();
+
+  const { title: routerTitle } = router.query as {
+    title: string;
+  };
 
   return (
     <FlexItem>
       <Flex alignItems={"center"} padding="12px 0" spacing={8}>
         <div style={{ width: 14, height: 14 }}>◦</div>
         <TimelineTitleText
+          isPage={isPage}
+          isSelected={routerTitle === title}
           onClick={() => {
-            router.push(`/css/flex/${title}`);
+            if (isPage) {
+              router.push(`/css/flex/${title}`);
+            }
           }}
         >
           {title}
