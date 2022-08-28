@@ -1,5 +1,6 @@
 import { SIDEBAR_SINGLE_ITEM_HEIGHT, SIDEBAR_WIDTH } from "@/src/theme/size";
 import styled from "@emotion/styled";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { routes } from "./routes";
 
@@ -51,6 +52,8 @@ const Inner = styled("div")<{ selected: boolean }>(({ selected }) => ({
 const Sidebar = (props: Props) => {
   const { open, onClose } = props;
 
+  const router = useRouter();
+
   const [selectedTab, setSelectedTab] = useState<string[]>([]);
   const [selectedItem, setSelectedItem] = useState("");
 
@@ -82,12 +85,14 @@ const Sidebar = (props: Props) => {
                 {children.map(item => {
                   const { title: innerTitle, path: innerPath } = item;
 
-                  const fullPath = `${upperPath}/${innerPath}`;
+                  const fullPath = `/${upperPath}/${innerPath}`;
 
                   return (
                     <Inner
                       selected={selectedItem === fullPath}
                       onClick={() => {
+                        if (router.pathname !== fullPath) router.push(fullPath);
+
                         if (fullPath) {
                           if (selectedItem === fullPath) {
                             return;
