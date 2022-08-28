@@ -14,9 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Header onClick={onOpenSideBar} />
       <GlobalStyle />
-      <div>
-        <Component {...pageProps} />
-      </div>
+      <Component {...pageProps} />
       <Sidebar open={open} onClose={onCloseSideBar} />
     </>
   );
