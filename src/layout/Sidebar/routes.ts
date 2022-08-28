@@ -5,7 +5,7 @@ export const routes = [
     children: [
       {
         title: "Flex",
-        path: "flex"
+        path: "flex/Introduction"
       },
       {
         title: "Grid",
