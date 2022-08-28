@@ -5,11 +5,9 @@ import { shouldForwardProp } from "../utils/emotion";
 const getSpacing = (
   spacing: number,
   crossSpacing: number,
-  direction?: React.CSSProperties["flexDirection"]
+  direction: React.CSSProperties["flexDirection"]
 ) => {
-  if (!direction) return undefined;
-
-  const [dir, crossDir] = direction.includes("column")
+  const [dir, crossDir] = direction?.includes("column")
     ? ["marginTop", "marginLeft"]
     : ["marginLeft", "marginTop"];
 
@@ -65,7 +63,7 @@ const Flex = styled("div", {
 })<Props>(
   ({
     display = "flex",
-    direction,
+    direction = "row",
     justifyContent,
     alignItems,
     wrap,
