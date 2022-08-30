@@ -53,7 +53,7 @@ const FlexIntroduction = () => {
         <FlexTypography>gap</FlexTypography>
       </div>
 
-      <MB size={2} />
+      <MB size={4} />
 
       <FlexTypography>- flex-item (자식)</FlexTypography>
       <div style={{ paddingLeft: 10 }}>
