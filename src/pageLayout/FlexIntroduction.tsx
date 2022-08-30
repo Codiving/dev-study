@@ -1,13 +1,12 @@
-import styled from "@emotion/styled";
 import MB from "../ui/MB";
-
-const FlexTypography = styled("p")(() => ({
-  padding: "5px 0"
-}));
+import { FlexTitle, FlexTypography } from "./ui";
 
 const FlexIntroduction = () => {
   return (
     <>
+      <FlexTitle># flex</FlexTitle>
+      <MB size={1} />
+
       <FlexTypography>
         해당 flex 프로젝트는 flex froggy 사이트의 영감을 받아 아이디어를 얻어
         진행하였습니다.
