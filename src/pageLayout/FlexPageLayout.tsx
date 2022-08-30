@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import { TimelineProps } from "../components/Timeline/Timeline";
 import { HEADER_HEIGHT } from "../theme/size";
 import { Flex, FlexItem } from "../ui";
+import FlexFlexDirection from "./FlexFlexDirection";
 import FlexIntroduction from "./FlexIntroduction";
 
 type T = {
@@ -114,7 +115,8 @@ const FlexPageLayout = () => {
 
   const components: Components = useMemo(
     () => ({
-      introduction: <FlexIntroduction />
+      introduction: <FlexIntroduction />,
+      "flex-direction": <FlexFlexDirection />
     }),
     []
   );
