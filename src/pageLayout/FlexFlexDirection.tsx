@@ -36,6 +36,7 @@ const FlexFlexDirection = () => {
       </FlexTypography>
       <FlexTypography>실습을 통해 알아보겠습니다.</FlexTypography>
 
+      <MB size={2} />
       <FContainer direction={direction} bgColor={"#4c2602"} padding={8}>
         <FItem margin={4} padding={8} bgColor="#f5ece1">
           AAAAA

@@ -6,6 +6,7 @@ import { HEADER_HEIGHT } from "../theme/size";
 import { Flex, FlexItem } from "../ui";
 import FlexFlexDirection from "./FlexFlexDirection";
 import FlexIntroduction from "./FlexIntroduction";
+import FlexJustifyContent from "./FlexJustifyContent";
 
 type T = {
   isPage?: boolean;
@@ -116,7 +117,8 @@ const FlexPageLayout = () => {
   const components: Components = useMemo(
     () => ({
       introduction: <FlexIntroduction />,
-      "flex-direction": <FlexFlexDirection />
+      "flex-direction": <FlexFlexDirection />,
+      "justify-content": <FlexJustifyContent />
     }),
     []
   );
