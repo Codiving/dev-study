@@ -39,22 +39,22 @@ const FlexFlexDirection = () => {
       <MB size={2} />
       <FContainer direction={direction} bgColor={"#4c2602"} padding={8}>
         <FItem margin={4} padding={8} bgColor="#f5ece1">
-          AAAAA
+          동해물과
         </FItem>
         <FItem margin={4} padding={8} bgColor="#f5d9b7">
-          BBBBBBBBBBB
+          백두산이 마르고
         </FItem>
         <FItem margin={4} padding={8} bgColor="#f6d0ac">
-          CCC
+          닳도록
         </FItem>
         <FItem margin={4} padding={8} bgColor="#e8c49a">
-          DDDDDDDD
+          하느님이 보우하사 우리나라
         </FItem>
         <FItem margin={4} padding={8} bgColor="#eaad74">
-          EEEEEEEEEEEEEEEEEEEE
+          만세
         </FItem>
         <FItem margin={4} padding={8} bgColor="#e49245">
-          FFFFF
+          무궁화 삼천리
         </FItem>
       </FContainer>
 
@@ -79,20 +79,13 @@ const FlexFlexDirection = () => {
       </Flex>
 
       <MB size={2} />
-      <FlexTypography>
-        위 실습 결과를 보면 row 방향일 때는 크기에 맞게 width가 설정되는 것을
-        확인할 수 있습니다.
-      </FlexTypography>
-      <FlexTypography>
-        그러나 column 방향인 경우는 width가 100% 되는 것을 확인할 수 있습니다.
-      </FlexTypography>
-
-      <MB size={2} />
+      <FlexDescription>* 보충 설명</FlexDescription>
       <FlexDescription>
-        * 미리 학습해보자면 flex-item에 설정된 기본 값 때문에 그렇습니다.
+        flex에서 flex-direction 속성만으로는 엄청난 것을 할 수 있지는 않습니다.
       </FlexDescription>
       <FlexDescription>
-        해당 내용은 뒷 부분에서 학습할 수 있습니다.
+        그러나 가장 기본이 되는 속성이고 많이 사용되기 때문에 꼭 이해하고
+        넘어가시길 바랍니다.
       </FlexDescription>
     </>
   );

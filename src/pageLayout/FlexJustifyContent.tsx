@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FContainer, FItem } from "../components/Flex";
 import { Flex, FlexItem } from "../ui";
 import MB from "../ui/MB";
-import { FlexTitle, FlexTypography } from "./ui";
+import { FlexDescription, FlexTitle, FlexTypography } from "./ui";
 
 const FLEX_JUSTIFYCONTENT: React.CSSProperties["justifyContent"][] = [
   "flex-start",
@@ -63,22 +63,22 @@ const FlexJustifyContent = () => {
         padding={8}
       >
         <FItem margin={4} padding={8} bgColor="#f5ece1">
-          AAAAA
+          남산 위에 저
         </FItem>
         <FItem margin={4} padding={8} bgColor="#f5d9b7">
-          BBBBBBBBBBB
+          소나무 철갑을 두른 듯
         </FItem>
         <FItem margin={4} padding={8} bgColor="#f6d0ac">
-          CCC
+          바람
         </FItem>
         <FItem margin={4} padding={8} bgColor="#e8c49a">
-          DDDDDDDD
+          서리 불변함은
         </FItem>
         <FItem margin={4} padding={8} bgColor="#eaad74">
-          EEEEEEEEEEEEEEEEEEEE
+          우리 기상일세
         </FItem>
         <FItem margin={4} padding={8} bgColor="#e49245">
-          FFFFF
+          무궁화 삼천리 화려강산
         </FItem>
       </FContainer>
 
@@ -101,6 +101,16 @@ const FlexJustifyContent = () => {
           );
         })}
       </Flex>
+
+      <MB size={2} />
+      <FlexDescription>* 보충 설명</FlexDescription>
+      <FlexDescription>
+        justfiy-content를 사용하면 width에 flex-item을 정렬할 수 있습니다.
+      </FlexDescription>
+      <FlexDescription>
+        해당 속성도 많이 사용되는 속성이므로 꼭 이해하고 넘어가는 것이
+        중요합니다.
+      </FlexDescription>
     </>
   );
 };
