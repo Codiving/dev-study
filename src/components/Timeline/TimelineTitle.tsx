@@ -32,7 +32,9 @@ const TimelineTitle = <T extends TimelineGeneric>(props: Props<T>) => {
         <div style={{ width: 14, height: 14 }}>◦</div>
         <TimelineTitleText
           isPage={data?.isPage ?? false}
-          isSelected={routerTitle === title}
+          isSelected={
+            routerTitle.toLocaleLowerCase() === title.toLocaleLowerCase()
+          }
           onClick={() => {
             if (data?.isPage) {
               router.push(`/css/flex/${title.toLocaleLowerCase()}`);
