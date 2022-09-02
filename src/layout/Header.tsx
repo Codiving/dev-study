@@ -11,6 +11,7 @@ const Header = (props: Props) => {
 
   return (
     <Flex
+      style={{ position: "sticky", top: 0 }}
       onClick={onClick}
       bgColor={HEADER_BG_COLOR}
       height={HEADER_HEIGHT}
