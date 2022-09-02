@@ -14,7 +14,14 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Header onClick={onOpenSideBar} />
       <GlobalStyle />
-      <Component {...pageProps} />
+      <main
+        style={{
+          overflowX: "hidden",
+          maxHeight: "calc(100vh - 60px)"
+        }}
+      >
+        <Component {...pageProps} />
+      </main>
       <Sidebar open={open} onClose={onCloseSideBar} />
     </>
   );
