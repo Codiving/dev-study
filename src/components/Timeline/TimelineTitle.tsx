@@ -22,21 +22,24 @@ const TimelineTitle = <T extends TimelineGeneric>(props: Props<T>) => {
   const { title = "", data } = props;
   const router = useRouter();
 
-  const { title: routerTitle } = router.query as {
+  const { title: routerTitle = "" } = router.query as {
     title: string;
   };
+
+  const isPage = data?.isPage ?? false;
+
+  const isSelected =
+    routerTitle.toLocaleLowerCase() === title.toLocaleLowerCase();
 
   return (
     <FlexItem>
       <Flex alignItems={"center"} padding="12px 0" spacing={8}>
         <div style={{ width: 14, height: 14 }}>◦</div>
         <TimelineTitleText
-          isPage={data?.isPage ?? false}
-          isSelected={
-            routerTitle.toLocaleLowerCase() === title.toLocaleLowerCase()
-          }
+          isPage={isPage}
+          isSelected={isSelected}
           onClick={() => {
-            if (data?.isPage) {
+            if (isPage) {
               router.push(`/css/flex/${title.toLocaleLowerCase()}`);
             }
           }}
