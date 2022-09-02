@@ -13,3 +13,8 @@ export const FlexTitle = styled("h3")(() => ({
   fontSize: 24,
   fontWeight: "bold"
 }));
+
+export const FlexMiniTitle = styled("h3")(() => ({
+  fontSize: 18,
+  fontWeight: "bold"
+}));
