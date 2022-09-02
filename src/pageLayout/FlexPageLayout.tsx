@@ -7,6 +7,7 @@ import { Flex, FlexItem } from "../ui";
 import FlexFlexDirection from "./FlexFlexDirection";
 import FlexIntroduction from "./FlexIntroduction";
 import FlexJustifyContent from "./FlexJustifyContent";
+import FlexQuiz1 from "./FlexQuiz1";
 
 type T = {
   isPage?: boolean;
@@ -36,6 +37,12 @@ const FLEX_TIMELINE: TimelineProps<T>[] = [
       },
       {
         title: "align-items",
+        data: {
+          isPage: true
+        }
+      },
+      {
+        title: "Quiz-1",
         data: {
           isPage: true
         }
@@ -118,7 +125,8 @@ const FlexPageLayout = () => {
     () => ({
       introduction: <FlexIntroduction />,
       "flex-direction": <FlexFlexDirection />,
-      "justify-content": <FlexJustifyContent />
+      "justify-content": <FlexJustifyContent />,
+      "quiz-1": <FlexQuiz1 />
     }),
     []
   );
@@ -130,6 +138,7 @@ const FlexPageLayout = () => {
         style={{
           boxShadow: "0 2px 10px rgb(0 0 0 / 12%)",
           overflowY: "scroll",
+          height: `calc(100vh - ${HEADER_HEIGHT}px)`,
           maxHeight: `calc(100vh - ${HEADER_HEIGHT}px)`,
           padding: "20px 12px"
         }}
@@ -138,7 +147,15 @@ const FlexPageLayout = () => {
           return <Timeline key={item.title} {...item} />;
         })}
       </FlexItem>
-      <FlexItem padding={"40px 60px"} flex={1}>
+      <FlexItem
+        style={{
+          height: `calc(100vh - ${HEADER_HEIGHT}px)`,
+          maxHeight: `calc(100vh - ${HEADER_HEIGHT}px)`,
+          overflowY: "scroll"
+        }}
+        padding={"40px 60px"}
+        flex={1}
+      >
         {/* TODO: 여기서 routerTitle로 컴포넌트 분기 */}
         {/* {routerTitle} */}
         {components[routerTitle]}
